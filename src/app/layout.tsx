@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     canonical: "https://xinzo.shop",
   },
   openGraph: {
-    title: "Xinzo — Chinese & Electrical Products Online",
+    title: "Xinzo",
     description:
       "Xinzo offers premium quality Chinese products and electrical products. Shop electronics, gadgets, and more with fast delivery across Bangladesh.",
     url: "https://xinzo.shop",
