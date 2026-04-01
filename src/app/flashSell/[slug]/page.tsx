@@ -239,7 +239,6 @@ const FlashSellProductPage = async ({
     const returnPolicy = (returnPolicies as ReturnPolicy[])[0];
     returnPolicyContent = returnPolicy?.content || "";
   } catch (error) {
-    console.error("Error fetching flash sell product:", error);
     notFound();
   }
 

@@ -4,9 +4,11 @@
 
 @layer base {
   :root {
-    /* Green and black theme */
-    --primary: 148, 83%, 26%; /* #0B7A3F */
-    --secondary: 0, 0%, 0%; /* #000000 */
+    /* Xinzo logo palette: blue-indigo → purple */
+    --primary: 244, 63%, 41%;
+    /* #3730a3 */
+    --secondary: 270, 76%, 39%;
+    /* #6b21a8 */
   }
 }
 
@@ -14,7 +16,7 @@
 .btn-submit,
 button[type="submit"],
 .submit-btn {
-  background-color: #0B7A3F;
+  background-color: #3730a3;
   color: #ffffff;
   padding: 12px 16px;
   border-radius: 0;
@@ -28,10 +30,11 @@ button[type="submit"],
   border: none;
   cursor: pointer;
 }
+
 .btn-submit:hover,
 button[type="submit"]:hover,
 .submit-btn:hover {
-  background-color: #096132;
+  background-color: #6b21a8;
 }
 
 .btn-cancel,
@@ -50,6 +53,7 @@ button[type="submit"]:hover,
   border: none;
   cursor: pointer;
 }
+
 .btn-cancel:hover,
 .cancel-btn:hover {
   background-color: #000000;
@@ -80,6 +84,7 @@ button.btn-rounded,
   border-radius: 1rem !important;
   overflow: hidden;
 }
+
 .rounded-modal .ant-modal-header {
   border-radius: 1rem 1rem 0 0 !important;
 }
@@ -95,10 +100,10 @@ button.btn-rounded,
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #0B7A3F;
+  background: #3730a3;
   border-radius: 10px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #096132;
+  background: #6b21a8;
 }

@@ -14,10 +14,10 @@ module.exports = {
         baiJamjuree: ["var(--font-baiJamjuree)", "var(--font-hindSiliguri)"],
       },
       colors: {
-        // Green and black theme
-        primary: "#0B7A3F",
-        primaryDark: "#096132",
-        accent: "#000000",
+        // Xinzo logo palette: blue-indigo → purple gradient, orange accent
+        primary: "#3730a3",
+        primaryDark: "#6b21a8",
+        accent: "#f97316",
       },
     },
   },

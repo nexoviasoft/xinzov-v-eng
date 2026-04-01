@@ -23,7 +23,6 @@ const ForgotPasswordPage = () => {
       toast.error("Please enter a valid email");
       return;
     }
-// console.log(email.trim());
     try {
       setSubmitting(true);
       const res = await requestPasswordReset(email.trim());

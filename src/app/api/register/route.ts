@@ -32,7 +32,6 @@ export async function POST(req: Request) {
       { status: 201 }
     );
   } catch (error: unknown) {
-    console.error("Registration error:", error);
     const axiosError = error as { response?: { data?: { message?: string }; status?: number }; message?: string };
     const errorMessage = axiosError.response?.data?.message || axiosError.message || "An unknown error occurred";
     return NextResponse.json(

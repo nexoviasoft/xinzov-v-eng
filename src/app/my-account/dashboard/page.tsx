@@ -81,7 +81,6 @@ export default function Dashboard() {
         address: userData.address || "",
       });
     } catch (error) {
-      console.error("Error fetching profile:", error);
     } finally {
       setIsLoading(false);
     }
@@ -121,7 +120,6 @@ export default function Dashboard() {
         inProgress,
       });
     } catch (error) {
-      console.error("Error fetching orders count:", error);
     }
   }, [userSession?.accessToken]);
 
@@ -147,7 +145,6 @@ export default function Dashboard() {
       setProfile(response.data.data);
       setIsEditing(false);
     } catch (error) {
-      console.error("Error updating profile:", error);
       setSaveError("Failed to update profile. Please try again.");
     } finally {
       setSaving(false);

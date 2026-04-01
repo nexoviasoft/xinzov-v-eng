@@ -128,7 +128,6 @@ const Orders = () => {
       });
       setOrders(response.data.data || []);
     } catch (error) {
-      console.error("Error fetching orders:", error);
     } finally {
       setLoading(false);
     }
@@ -176,7 +175,6 @@ const Orders = () => {
       toast.success("Order successfully cancelled!");
       fetchOrders(); // Refresh orders list
     } catch (error: unknown) {
-      console.error("Error cancelling order:", error);
       const axiosError = error as {
         response?: { data?: { message?: string; error?: string } };
       };
@@ -213,7 +211,6 @@ const Orders = () => {
         setTrackingExpandedOrderId(order.id);
       }
     } catch (error) {
-      console.error("Error tracking order:", error);
       setTrackingDataByOrderId((prev) => ({
         ...prev,
         [order.id]: {
@@ -260,7 +257,6 @@ const Orders = () => {
         );
       }
     } catch (error: unknown) {
-      console.error("Error tracking order:", error);
       const axiosError = error as {
         response?: { data?: { message?: string; error?: string } };
       };

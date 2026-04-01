@@ -47,7 +47,6 @@ const CartProduct = ({
         await updateCartItem(item.id, quantity + 1);
       }
     } catch (error) {
-      console.error("Error updating cart:", error);
       toast.error("Failed to update cart");
     }
   };
@@ -68,7 +67,6 @@ const CartProduct = ({
         await updateCartItem(item.id, quantity - 1);
       }
     } catch (error) {
-      console.error("Error updating cart:", error);
       toast.error("Failed to update cart");
     }
   };
@@ -83,7 +81,6 @@ const CartProduct = ({
       await deleteCartItem(item.id);
       toast.success("Product removed");
     } catch (error) {
-      console.error("Error deleting cart item:", error);
       toast.error("Failed to remove product");
     }
   };

@@ -4,6 +4,35 @@ import SideBar from "./_components/Products/products_layout/SideBar";
 import TopBar from "./_components/Products/products_layout/TopBar";
 import ProductsBody from "./_components/Products/ProductsBody";
 import ThemeLoader from "../../components/shared/ThemeLoader";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Collection — All Products",
+  description:
+    "Browse Xinzo's full collection of premium quality products including pickles, snacks, spices, and more. Best prices with fast delivery across Bangladesh.",
+  keywords: [
+    "xinzo products",
+    "buy online bangladesh",
+    "pickles",
+    "snacks",
+    "spices",
+    "mango pickle",
+    "boroi achar",
+    "jhalmuri",
+  ],
+  alternates: {
+    canonical: "https://xinzo.shop/products",
+  },
+  openGraph: {
+    title: "Our Collection — All Products | Xinzo",
+    description:
+      "Browse Xinzo's full collection of premium quality products. Fast delivery across Bangladesh.",
+    url: "https://xinzo.shop/products",
+    type: "website",
+  },
+};
+
+
 
 const Products = () => {
   return (

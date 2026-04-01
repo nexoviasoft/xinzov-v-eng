@@ -11,7 +11,6 @@ const ForYou = async () => {
     // Limit to 10 products
     products = products.slice(0, 10);
   } catch (error) {
-    console.error("Failed to load products:", error);
     // products will remain empty array
   }
 

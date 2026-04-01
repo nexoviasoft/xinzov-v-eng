@@ -10,7 +10,6 @@ const FlashSaleBanner = async () => {
   try {
     flashSaleProducts = await getFlashSaleProducts();
   } catch (error) {
-    console.error("Failed to load flash sale products for banner:", error);
   }
 
   if (!flashSaleProducts.length) {

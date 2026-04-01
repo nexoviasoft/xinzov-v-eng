@@ -59,7 +59,6 @@ const ReviewModal: React.FC<ReviewModalProps> = ({ productId, companyId, onSubmi
       setTitle("");
       setReview("");
     } catch (error) {
-      console.error("Failed to submit review", error);
       toast.error("Failed to submit review. Please try again.");
     } finally {
       setSubmitting(false);

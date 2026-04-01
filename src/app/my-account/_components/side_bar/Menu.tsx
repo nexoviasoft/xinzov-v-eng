@@ -38,7 +38,6 @@ export const menuItems = [
 
 const Menu = () => {
   const path = usePathname().split("/").pop();
-  console.log(path);
   return (
     <div className=" flex flex-col gap-3">
       {menuItems.map((item) => (

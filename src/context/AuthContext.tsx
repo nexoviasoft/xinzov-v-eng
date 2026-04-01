@@ -114,7 +114,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       return { success: false, error: "Invalid response from server" };
     } catch (error: unknown) {
-      console.error("Login error:", error);
       const axiosError = error as { response?: { data?: { message?: string } }; message?: string };
       const errorMessage = axiosError.response?.data?.message || axiosError.message || "Invalid credentials";
       return { success: false, error: errorMessage };
@@ -152,7 +151,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       return { success: true };
     } catch (error: unknown) {
-      console.error("Register error:", error);
       const axiosError = error as { 
         response?: { 
           data?: { message?: string; error?: string } | string[]; 

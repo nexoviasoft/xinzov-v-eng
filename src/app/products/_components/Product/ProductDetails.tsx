@@ -157,7 +157,6 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
           setOwnerPhone(user?.phone ?? null);
         }
       } catch (error) {
-        // console.error("Failed to load system user for product details:", error);
       }
     };
     loadOwner();
@@ -183,7 +182,6 @@ const ProductDetails: React.FC<ProductProps> = ({ product, promos }) => {
     : null;
 
 
-  console.log("Full Product Data:", product);
 
 
   return (

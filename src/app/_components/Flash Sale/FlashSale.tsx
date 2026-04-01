@@ -13,7 +13,6 @@ const FlashSale = async ({ isPage = false }: FlashSaleProps = {}) => {
   try {
     flashSaleProducts = await getFlashSaleProducts();
   } catch (error) {
-    console.error("Failed to load flash sale products:", error);
     // flashSaleProducts will remain empty array
   }
 

@@ -47,7 +47,6 @@ export default function Reviews() {
       const cats = await getCategories(API_CONFIG.companyId);
       setCategories(cats);
     } catch (error) {
-      console.error("Error fetching categories:", error);
     } finally {
       setLoading(false);
     }
@@ -61,7 +60,6 @@ export default function Reviews() {
       );
       setProducts(prods);
     } catch (error) {
-      console.error("Error fetching products:", error);
     }
   }, [selectedCategory]);
 
@@ -72,7 +70,6 @@ export default function Reviews() {
       });
       setReviews(response.data.data || response.data || []);
     } catch (error) {
-      console.error("Error fetching reviews:", error);
     }
   }, [userSession?.accessToken]);
 
@@ -124,7 +121,6 @@ export default function Reviews() {
       setShowForm(false);
       fetchReviews();
     } catch (error: unknown) {
-      console.error("Error submitting review:", error);
       const axiosError = error as {
         response?: { data?: { message?: string } };
       };

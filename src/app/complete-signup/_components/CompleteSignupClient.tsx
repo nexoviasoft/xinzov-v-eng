@@ -67,7 +67,6 @@ const CompleteSignupClient = () => {
         router.push("/my-account/orders");
       }
     } catch (err) {
-      console.error(err);
       toast.error("Failed to complete signup");
     } finally {
       setSubmitting(false);

@@ -116,7 +116,6 @@ export async function getTerms(companyId?: string): Promise<PolicyPage[]> {
             : [];
         return Array.isArray(data) ? data : [];
     } catch (error: unknown) {
-        console.error("Error fetching terms:", error);
         return [];
     }
 }
@@ -142,7 +141,6 @@ export async function getPrivacyPolicies(companyId?: string): Promise<PolicyPage
             : [];
         return Array.isArray(data) ? data : [];
     } catch (error: unknown) {
-        console.error("Error fetching privacy policy:", error);
         return [];
     }
 }
@@ -177,7 +175,6 @@ export async function getSystemUserByCompanyId(
 
         return matchedOwner ?? matchedAny ?? users[0] ?? null;
     } catch (error: unknown) {
-        console.error("Error fetching system user:", error);
         const err = error as { code?: string; message?: string; cause?: { code?: string } };
         if (
             err.code === 'ECONNREFUSED' ||
@@ -190,7 +187,6 @@ export async function getSystemUserByCompanyId(
             err.message?.includes('fetch failed') ||
             (err.cause && err.cause.code === 'ECONNREFUSED')
         ) {
-            console.warn("Backend server is not running or not accessible. Please start the backend server.");
             return null;
         }
         return null;
@@ -241,7 +237,6 @@ export async function getProducts(
         );
         return response.data.data;
     } catch (error: unknown) {
-        console.error("Error fetching products:", error);
         const err = error as {
             code?: string;
             message?: string;
@@ -265,7 +260,6 @@ export async function getProducts(
             (err.name === 'AggregateError' && err.errors && Array.isArray(err.errors));
 
         if (isConnectionError) {
-            console.warn("Backend server is not running or not accessible. Please start the backend server.");
             return [];
         }
         // For other errors, still return empty array to prevent app crash
@@ -293,7 +287,6 @@ export async function getProductReviews(
         const data = Array.isArray(payload) ? payload : (payload && typeof payload === 'object' && 'data' in payload) ? payload.data : [];
         return Array.isArray(data) ? data : [];
     } catch (error: unknown) {
-        console.error("Error fetching product reviews:", error);
         return [];
     }
 }
@@ -317,7 +310,6 @@ export async function getRefundPolicies(
         const data = Array.isArray(payload) ? payload : (payload && typeof payload === 'object' && 'data' in payload) ? payload.data : [];
         return Array.isArray(data) ? data : [];
     } catch (error: unknown) {
-        console.error("Error fetching refund policies:", error);
         return [];
     }
 }
@@ -346,7 +338,6 @@ export async function getProductsByCategory(
         if (payload && typeof payload === "object" && "data" in payload && Array.isArray(payload.data)) return payload.data as Product[];
         return [];
     } catch (error: unknown) {
-        console.error("Error fetching products by category:", error);
         const err = error as {
             code?: string;
             message?: string;
@@ -370,7 +361,6 @@ export async function getProductsByCategory(
             (err.name === 'AggregateError' && err.errors && Array.isArray(err.errors));
 
         if (isConnectionError) {
-            console.warn("Backend server is not running or not accessible. Please start the backend server.");
             return [];
         }
         // For other errors, still return empty array to prevent app crash
@@ -391,7 +381,6 @@ export async function getProduct(id: number, companyId?: string): Promise<Produc
         );
         return response.data.data;
     } catch (error) {
-        console.error("Error fetching product:", error);
         throw error;
     }
 }
@@ -441,7 +430,6 @@ export async function getTrendingProducts(
         const data = json?.data;
         return Array.isArray(data) ? data : [];
     } catch {
-        console.warn("Trending products: backend not accessible, using empty list.");
         return [];
     }
 }
@@ -513,7 +501,6 @@ export async function getCategories(companyId?: string): Promise<Category[]> {
         if (payload && typeof payload === "object" && "data" in payload && Array.isArray(payload.data)) return payload.data;
         return [];
     } catch (error: unknown) {
-        console.error("Error fetching categories:", error);
         const err = error as {
             code?: string;
             message?: string;
@@ -537,7 +524,6 @@ export async function getCategories(companyId?: string): Promise<Category[]> {
             (err.name === 'AggregateError' && err.errors && Array.isArray(err.errors));
 
         if (isConnectionError) {
-            console.warn("Backend server is not running or not accessible. Please start the backend server.");
             return [];
         }
         // For other errors, still return empty array to prevent app crash
@@ -562,7 +548,6 @@ export async function getCategory(
         );
         return response.data.data;
     } catch (error) {
-        console.error("Error fetching category:", error);
         throw error;
     }
 }
@@ -704,7 +689,6 @@ export async function getPublicPromocodes(companyId?: string): Promise<PromoCode
             : [];
         return Array.isArray(data) ? data : [];
     } catch (error) {
-        console.error("Error fetching public promocodes:", error);
         return [];
     }
 }
@@ -822,7 +806,6 @@ export async function requestPasswordReset(email: string): Promise<{ success: bo
             message: "If the email exists, a password reset link has been sent.",
         };
     } catch (error: unknown) {
-        console.error("Failed to request password reset:", error);
         return {
             success: false,
             message: "Failed to send password reset link. Please try again.",
@@ -886,7 +869,6 @@ export async function resetPasswordWithToken(params: {
         });
         return response.data;
     } catch (error: unknown) {
-        console.error("Failed to reset password:", error);
         const axiosError = error as { response?: { data?: { message?: string } }; message?: string };
         const message =
             axiosError.response?.data?.message || axiosError.message || "Failed to reset password. Please try again.";
@@ -907,7 +889,6 @@ export async function getBanners(companyId?: string): Promise<Banner[]> {
         const data = json?.data;
         return Array.isArray(data) ? data : [];
     } catch {
-        console.warn("Banners: backend not accessible, using empty list.");
         return [];
     }
 }
@@ -930,7 +911,6 @@ export async function getTopProducts(companyId?: string): Promise<TopProductsSec
             carouselItems: Array.isArray(data.carouselItems) ? data.carouselItems : [],
         };
     } catch {
-        console.warn("Top products: backend not accessible, using null.");
         return null;
     }
 }

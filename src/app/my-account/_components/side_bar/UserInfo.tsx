@@ -22,7 +22,6 @@ const UserInfo = () => {
       setUserName(userData.name || "");
       setUserEmail(userData.email || "");
     } catch (error) {
-      console.error("Error fetching user profile:", error);
       // Fallback to session data
       if (userSession?.name) setUserName(userSession.name);
       if (userSession?.email) setUserEmail(userSession.email);

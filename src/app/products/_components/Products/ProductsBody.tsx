@@ -225,7 +225,6 @@ const ProductsBody = () => {
 
         setProducts(sortedProducts);
       } catch (err) {
-        console.error("Error fetching products:", err);
         setError(err instanceof Error ? err.message : "Failed to load products");
         setProducts([]);
       } finally {

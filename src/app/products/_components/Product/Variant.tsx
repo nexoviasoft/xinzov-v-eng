@@ -40,7 +40,6 @@ const Variant = ({
     }
   }, [activeId, handlePrice, variant]);
   const handleClick = (id: string) => {
-    console.log("clicked" + id);
     setActiveId(id);
     if (onUserSelect) onUserSelect();
   };

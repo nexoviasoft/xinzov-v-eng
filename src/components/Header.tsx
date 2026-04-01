@@ -45,7 +45,6 @@ const Header = () => {
           setLogoSrc(user.companyLogo);
         }
       } catch (error) {
-        console.error("Failed to load company logo for header:", error);
       } finally {
         if (mounted) setIsLogoLoading(false);
       }

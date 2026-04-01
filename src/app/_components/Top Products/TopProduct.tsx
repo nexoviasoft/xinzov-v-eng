@@ -12,7 +12,6 @@ const img_2 =
 const TopProduct = async () => {
   const companyId = API_CONFIG.companyId;
   const section = await getTopProducts(companyId);
-  console.log("section", section);
   if (
     !section ||
     (!section.leftImage &&

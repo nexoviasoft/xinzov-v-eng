@@ -41,7 +41,6 @@ export default function Address() {
         phone: userData.phone || "",
       });
     } catch (error) {
-      console.error("Error fetching profile:", error);
     } finally {
       setLoading(false);
     }
@@ -62,7 +61,6 @@ export default function Address() {
       setProfile(response.data.data);
       setIsEditing(false);
     } catch (error) {
-      console.error("Error updating address:", error);
       alert("Failed to update address. Try again.");
     } finally {
       setSaving(false);

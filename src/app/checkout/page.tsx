@@ -161,7 +161,6 @@ const CheckoutContent = () => {
             totalPrice: finalPrice * parsedQuantity,
           });
         } catch (error) {
-          console.error("Failed to fetch product from query params:", error);
           toast.error("Failed to load product");
         }
       };
@@ -228,17 +227,12 @@ const CheckoutContent = () => {
                 },
               };
             } catch (error) {
-              console.error(
-                `Failed to fetch product ${item.product.id}:`,
-                error,
-              );
               return item;
             }
           }),
         );
         setEnrichedItems(enriched);
       } catch (error) {
-        console.error("Failed to enrich cart items:", error);
         setEnrichedItems(Array.isArray(cart.items) ? cart.items : []);
       }
     };
@@ -398,7 +392,6 @@ const CheckoutContent = () => {
       setPromo(match);
       toast.success("Promo applied");
     } catch (error) {
-      console.error("Failed to apply promo", error);
       toast.error("Failed to apply promo");
     } finally {
       setPromoLoading(false);
@@ -464,7 +457,6 @@ const CheckoutContent = () => {
 
         setAvailablePromos(relevantPromos);
       } catch (error) {
-        console.error("Failed to load promo codes", error);
         setAvailablePromos([]);
       } finally {
         setAvailablePromosLoading(false);
@@ -515,7 +507,6 @@ const CheckoutContent = () => {
         setIncompleteOrderId(res.id);
       }
     } catch (error) {
-      console.error("Failed to save incomplete order:", error);
     }
   };
   // Always update the ref so event listeners always call the freshest version
@@ -659,7 +650,6 @@ const CheckoutContent = () => {
         }
       }
     } catch (error) {
-      console.error("Order failed", error);
       toast.error("Order failed");
     } finally {
       setOrderLoading(false);

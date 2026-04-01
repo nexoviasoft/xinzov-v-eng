@@ -94,7 +94,6 @@ const RelatedProducts = async ({ id }: { id: string }) => {
       .slice(0, 10)
       .map(mapProductToCardFormat);
   } catch (error) {
-    console.error("Error fetching related products:", error);
     // Return empty array on error
   }
 
