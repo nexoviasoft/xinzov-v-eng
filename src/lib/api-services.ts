@@ -682,12 +682,18 @@ export async function getPublicPromocodes(companyId?: string): Promise<PromoCode
             getApiUrl(`/promocode/public?${params.toString()}`),
         );
         const payload: ApiResponse<PromoCode[]> | PromoCode[] = response.data;
-        const data = Array.isArray(payload)
+        const raw = Array.isArray(payload)
             ? payload
             : (payload && typeof payload === "object" && "data" in payload)
             ? (payload as ApiResponse<PromoCode[]>).data
             : [];
-        return Array.isArray(data) ? data : [];
+        if (!Array.isArray(raw)) return [];
+        // Normalize numeric fields that the API may return as strings
+        return raw.map((p: any) => ({
+            ...p,
+            discountValue: Number(p.discountValue ?? 0),
+            minOrderAmount: p.minOrderAmount != null ? Number(p.minOrderAmount) : undefined,
+        })) as PromoCode[];
     } catch (error) {
         return [];
     }

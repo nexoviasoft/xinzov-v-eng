@@ -279,11 +279,11 @@ const CheckoutContent = () => {
   const discount = useMemo(() => {
     if (!promo) return 0;
     // validate min order
-    if (promo.minOrderAmount && subtotal < promo.minOrderAmount) return 0;
+    if (promo.minOrderAmount && subtotal < Number(promo.minOrderAmount)) return 0;
     if (promo.discountType === "percentage") {
-      return Math.min((subtotal * promo.discountValue) / 100, subtotal);
+      return Math.min((subtotal * Number(promo.discountValue)) / 100, subtotal);
     }
-    return Math.min(promo.discountValue, subtotal);
+    return Math.min(Number(promo.discountValue), subtotal);
   }, [promo, subtotal]);
 
   const shippingCharge =
@@ -367,7 +367,7 @@ const CheckoutContent = () => {
         setPromo(null);
         return;
       }
-      if (match.minOrderAmount && subtotal < match.minOrderAmount) {
+      if (match.minOrderAmount && subtotal < Number(match.minOrderAmount)) {
         toast.error(`Minimum order ${match.minOrderAmount} required`);
         setPromo(null);
         return;
