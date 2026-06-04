@@ -11,6 +11,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ConfigProvider } from "antd";
 import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
+import FloatingSocialIcons from "@/components/FloatingSocialIcons";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -107,6 +108,7 @@ export default function RootLayout({
                 <FlashSaleBanner />
                 <div className="min-h-screen">{children}</div>
                 <Footer />
+                <FloatingSocialIcons />
                 <BottomNav />
               </AntdRegistry>
             </CartProvider>
